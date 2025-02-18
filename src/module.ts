@@ -1,7 +1,7 @@
 import { defineNuxtModule, createResolver, addServerHandler, addPrerenderRoutes, addServerImports } from '@nuxt/kit'
 import type { ModuleOptions } from './types'
 
-export * from './types'
+export type * from './types'
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {

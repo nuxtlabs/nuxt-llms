@@ -36,7 +36,7 @@
   "devDependencies": {
     "nuxt-llms": "link:.",
     "@nuxt/devtools": "^2.1.0",
-    "@nuxt/eslint-config": "^1.0.1",
+    "@nuxt/eslint-config": "^1.1.0",
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^3.15.4",
     "@nuxt/test-utils": "^3.15.4",
@@ -44,9 +44,9 @@
     "changelogen": "^0.5.7",
     "eslint": "^9.20.1",
     "nuxt": "^3.15.4",
-    "typescript": "~5.7.3",
-    "vitest": "^3.0.5",
+    "typescript": "~5.6.0",
+    "vitest": "^3.0.6",
     "vue-tsc": "^2.2.2"
   },
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  "packageManager": "pnpm@10.4.1"
 }
