@@ -9,7 +9,7 @@ export default eventHandler(async (event) => {
   const contents = [] as string[]
   const llms = JSON.parse(JSON.stringify(options))
 
-  await llmsHooks.callHook('llms:full', event, llms, contents)
+  await llmsHooks.callHook('generate:full', event, llms, contents)
 
   const document = [
     `# ${llms.llmsFull?.title || 'Documentation'}`,

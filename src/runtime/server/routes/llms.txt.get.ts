@@ -8,9 +8,7 @@ export default eventHandler(async (event) => {
 
   const llms = JSON.parse(JSON.stringify(options))
 
-  const sections = llms.sections || []
-
-  await llmsHooks.callHook('llms', event, llms, sections)
+  await llmsHooks.callHook('generate', event, llms)
 
   const document = [
     `# ${llms.title || 'Documentation'}`,
@@ -20,7 +18,7 @@ export default eventHandler(async (event) => {
     document.push(`> ${options.description}`)
   }
 
-  for (const section of sections) {
+  for (const section of llms.sections) {
     document.push(`## ${section.title}`)
     if (section.description) {
       document.push(section.description)
