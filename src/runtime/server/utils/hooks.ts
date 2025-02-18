@@ -1,6 +1,6 @@
 import { createHooks } from 'hookable'
 import type { H3Event } from 'h3'
-import type { ModuleOptions } from '@nuxtjs/llms'
+import type { ModuleOptions } from 'nuxt-llms'
 
 export interface LLMSHooks {
   'generate': (event: H3Event, options: ModuleOptions) => void

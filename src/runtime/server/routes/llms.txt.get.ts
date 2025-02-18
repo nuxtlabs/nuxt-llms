@@ -1,5 +1,5 @@
 import { eventHandler, setHeader } from 'h3'
-import type { LLMSection, ModuleOptions } from '@nuxtjs/llms'
+import type { LLMSection, ModuleOptions } from 'nuxt-llms'
 import { llmsHooks } from '../utils/hooks'
 import { useRuntimeConfig } from '#imports'
 
