@@ -21,7 +21,7 @@ export default defineNuxtModule<ModuleOptions>({
       sections: options.sections || [],
     }
 
-    addServerImports([{ name: 'llmsHooks', from: resolve('./runtime/utils/hooks') }])
+    addServerImports([{ name: 'llmsHooks', from: resolve('./runtime/server/utils/hooks') }])
 
     addServerHandler({ route: '/llms.txt', handler: resolve('./runtime/server/routes/llms_full.txt.get') })
     addPrerenderRoutes('/llms.txt')
