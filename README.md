@@ -5,7 +5,7 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Nuxt LLMs generates [`llms.txt` markdown documentation](https://llmstxt.org/) for your Nuxt application. It provides runtime hooks to gather the content from your application and generate documentation in a text format.
+Nuxt LLMs automatically generates [`llms.txt` markdown documentation](https://llmstxt.org/) for your Nuxt application.  It provides runtime hooks to collect data from various sources (CMS, Nuxt Content, etc.) and generate structured documentation in a text-based format.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
@@ -13,19 +13,19 @@ Nuxt LLMs generates [`llms.txt` markdown documentation](https://llmstxt.org/) fo
 
 ## Features
 
-- Generate `llms.txt` and `llms_full.txt` files
-- Customizable sections right from your `nuxt.config.ts`
-- Simple hooks to integrate with Nuxt modules and your application
+- Generates & prerenders `/llms.txt` and `/llms_full.txt` routes automatically
+- Customizable sections directly from your `nuxt.config.ts`
+- Integrates with Nuxt modules and your application via the runtime hooks system
 
 ## Quick Setup
 
-Install module
+1. Install the module:
 
 ```bash
 npm i nuxt-llms
 ```
 
-Then, add nuxt-llms to the modules section of your nuxt.config.ts
+2. Register `nuxt-llms` in your `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
@@ -33,7 +33,7 @@ export default defineNuxtConfig({
 })
 ```
 
-Add application domain and provide information about the application
+3. Configure your application details:
 
 ```ts
 export default defineNuxtConfig({
