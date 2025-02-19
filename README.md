@@ -1,12 +1,3 @@
-<!--
-Get your module up and running quickly.
-
-Find and replace all on all files (CMD+SHIFT+F):
-- Name: My Module
-- Package name: my-module
-- Description: My new Nuxt module
--->
-
 # Nuxt LLMs
 
 [![npm version][npm-version-src]][npm-version-href]
@@ -14,7 +5,7 @@ Find and replace all on all files (CMD+SHIFT+F):
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-My new Nuxt module for doing amazing things.
+Nuxt LLMs generates [`llms.txt` markdown documentation](https://llmstxt.org/) for your Nuxt application. It provides runtime hooks to gather the content from your application and generate documentation in a text format.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
@@ -22,53 +13,89 @@ My new Nuxt module for doing amazing things.
 
 ## Features
 
-<!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
+- [**Nuxt 3**](https://nuxt.com) support
+- Generate `llms.txt` and `llms_full.txt` documentation
+- Customizable documentation sections
 
 ## Quick Setup
 
-Install the module to your Nuxt application with one command:
+Install module
 
 ```bash
-npx nuxi module add my-module
+npm i nuxt-llms
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+Then, add nuxt-llms to the modules section of your nuxt.config.ts
 
+```ts
+export default defineNuxtConfig({
+  modules: ['nuxt-llms']
+})
+```
 
-## Contribution
+Add application domain and provide information about the application
 
-<details>
-  <summary>Local development</summary>
-  
-  ```bash
-  # Install dependencies
-  npm install
-  
-  # Generate type stubs
-  npm run dev:prepare
-  
-  # Develop with the playground
-  npm run dev
-  
-  # Build the playground
-  npm run dev:build
-  
-  # Run ESLint
-  npm run lint
-  
-  # Run Vitest
-  npm run test
-  npm run test:watch
-  
-  # Release new version
-  npm run release
-  ```
+```ts
+export default defineNuxtConfig({
+  modules: ['nuxt-llms'],
+  llms: {
+    domain: 'https://example.com',
+    title: 'My Application',
+    description: 'My Application Description',
+    sections: [
+      {
+        title: 'Section 1',
+        description: 'Section 1 Description',
+        links: [
+          {
+            title: 'Link 1',
+            description: 'Link 1 Description',
+            href: '/link-1',
+          },
+          {
+            title: 'Link 2',
+            description: 'Link 2 Description',
+            href: '/link-2',
+          },
+        ],
+      },
+    ],
+  },
+})
+```
 
-</details>
+That's it! You can visit `/llms.txt` to see the generated documentation ✨
 
+## Options
+
+- `domain`(required): The domain of the application
+- `title`: The title of the application, will be displayed at the top of the documentation
+- `description`: The description of the application, will be displayed at the top of the documentation right after the title
+- `sections`: The sections of the documentation.
+  Section are consisted of a title, one or more paragraphs of description and possibly a list of links.
+  Each section is an object with the following properties:
+  - `title`(required): The title of the section
+  - `description`: The description of the section
+  - `links`: The links of the section
+    - `title`(required): The title of the link
+    - `description`: The description of the link
+    - `href`(required): The href of the link
+- `notes`: The notes of the documentation. Notes are a special section which always appears at the end of the documentation. Notes are usefull to add any information about the application or documentation itself.
+
+## 💻 Development
+
+- Clone repository
+- Install dependencies using `pnpm install`
+- Prepare using `pnpm dev:prepare`
+- Build using `pnpm prepack`
+- Try playground using `pnpm dev`
+- Test using `pnpm test`
+
+## License
+
+[MIT License](LICENSE)
+
+Copyright (c) NuxtLabs
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/my-module/latest.svg?style=flat&colorA=020420&colorB=00DC82
