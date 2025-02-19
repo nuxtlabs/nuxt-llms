@@ -1,8 +1,11 @@
 {
   "name": "nuxt-llms",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Generate llms.txt documentation for your Nuxt application",
-  "repository": "nuxtlabs/nuxt-llms",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuxtlabs/nuxt-llms.git"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
