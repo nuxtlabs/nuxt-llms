@@ -1,6 +1,6 @@
 import { eventHandler, setHeader } from 'h3'
 import type { ModuleOptions } from 'nuxt-llms'
-import { llmsHooks } from '../utils/hooks'
+import { llmsHooks } from 'nuxt-llms/runtime'
 import { useRuntimeConfig } from '#imports'
 
 export default eventHandler(async (event) => {
