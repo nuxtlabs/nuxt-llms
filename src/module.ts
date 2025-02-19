@@ -1,4 +1,4 @@
-import { defineNuxtModule, createResolver, addServerHandler, addPrerenderRoutes, addServerImports } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addServerHandler, addPrerenderRoutes, addServerImports, useLogger } from '@nuxt/kit'
 import type { ModuleOptions } from './types'
 
 export type * from './types'
@@ -8,12 +8,12 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'Nuxt LLMS',
     configKey: 'llms',
   },
-  // Default configuration options of the Nuxt module
   defaults: {},
   setup(options, nuxt) {
+    const logger = useLogger('nuxt-llms')
     const { resolve } = createResolver(import.meta.url)
 
-    nuxt.options.runtimeConfig.llms = {
+    const llmsConfig = nuxt.options.runtimeConfig.llms = {
       domain: options.domain,
       title: options.title,
       description: options.description,
@@ -21,12 +21,26 @@ export default defineNuxtModule<ModuleOptions>({
       sections: options.sections || [],
     }
 
-    addServerImports([{ name: 'llmsHooks', from: resolve('./runtime/server/utils/hooks') }])
+    if (!options.domain) {
+      logger.warn('nuxt-llms require a domain to be set. `llms.domain` is missing.')
+      return
+    }
 
-    addServerHandler({ route: '/llms.txt', handler: resolve('./runtime/server/routes/llms_full.txt.get') })
+    addServerImports([{ name: 'llmsHooks', from: resolve('./runtime/server/utils/hooks') }])
+    addServerHandler({ route: '/llms.txt', handler: resolve('./runtime/server/routes/llms.txt.get') })
     addPrerenderRoutes('/llms.txt')
 
     if (options.llmsFull) {
+      llmsConfig.sections.unshift({
+        title: 'Documentation Sets',
+        links: [
+          {
+            title: options.llmsFull.title,
+            description: options.llmsFull.description,
+            href: `${options.domain}/llms_full.txt`,
+          },
+        ],
+      })
       addServerHandler({ route: '/llms_full.txt', handler: resolve('./runtime/server/routes/llms_full.txt.get') })
       addPrerenderRoutes('/llms_full.txt')
     }

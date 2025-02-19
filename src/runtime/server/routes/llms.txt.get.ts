@@ -1,12 +1,12 @@
 import { eventHandler, setHeader } from 'h3'
-import type { LLMSection, ModuleOptions } from 'nuxt-llms'
+import type { ModuleOptions } from 'nuxt-llms'
 import { llmsHooks } from '../utils/hooks'
 import { useRuntimeConfig } from '#imports'
 
 export default eventHandler(async (event) => {
   const options = useRuntimeConfig(event).llms as ModuleOptions
 
-  const llms = JSON.parse(JSON.stringify(options))
+  const llms: ModuleOptions = JSON.parse(JSON.stringify(options))
 
   await llmsHooks.callHook('generate', event, llms)
 
@@ -24,14 +24,14 @@ export default eventHandler(async (event) => {
       document.push(section.description)
     }
     document.push(
-      (section as LLMSection).links.map((link) => {
+      section.links?.map((link) => {
         return `- [${link.title}](${link.href}): ${link.description}`
-      }).join('\n'),
+      }).join('\n') || '',
     )
   }
 
   if (options.notes && options.notes.length) {
-    llms.push(
+    document.push(
       '## Notes',
       (options.notes || []).map(note => `- ${note}`).join('\n'),
     )

@@ -1,7 +1,7 @@
-export interface LLMSection {
+export interface LLMsSection {
   title: string
   description?: string
-  links: Array<{
+  links?: Array<{
     title: string
     description?: string
     href: string
@@ -20,7 +20,7 @@ export interface ModuleOptions {
     title: string
     description: string
   }
-  sections: Array<LLMSection>
+  sections: Array<LLMsSection>
   title?: string
   description?: string
   notes?: string[]

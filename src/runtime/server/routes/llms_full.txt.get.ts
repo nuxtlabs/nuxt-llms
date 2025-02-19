@@ -7,7 +7,7 @@ export default eventHandler(async (event) => {
   const options = useRuntimeConfig(event).llms as ModuleOptions
 
   const contents = [] as string[]
-  const llms = JSON.parse(JSON.stringify(options))
+  const llms: ModuleOptions = JSON.parse(JSON.stringify(options))
 
   await llmsHooks.callHook('generate:full', event, llms, contents)
 

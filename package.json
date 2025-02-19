@@ -1,8 +1,8 @@
 {
   "name": "nuxt-llms",
   "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "description": "Generate llms.txt documentation for your Nuxt application",
+  "repository": "nuxtlabs/nuxt-llms",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -10,6 +10,11 @@
       "types": "./dist/types.d.ts",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
+    },
+    "./runtime": {
+      "types": "./dist/runtime/index.d.ts",
+      "import": "./dist/runtime/index.js",
+      "require": "./dist/runtime/index.js"
     }
   },
   "main": "./dist/module.cjs",
