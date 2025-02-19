@@ -13,9 +13,9 @@ Nuxt LLMs generates [`llms.txt` markdown documentation](https://llmstxt.org/) fo
 
 ## Features
 
-- [**Nuxt 3**](https://nuxt.com) support
-- Generate `llms.txt` and `llms_full.txt` documentation
-- Customizable documentation sections
+- Generate `llms.txt` and `llms_full.txt` files
+- Customizable sections right from your `nuxt.config.ts`
+- Simple hooks to integrate with Nuxt modules and your application
 
 ## Quick Setup
 
