@@ -1,3 +1,5 @@
+![nuxt-llms-social-card](https://github.com/user-attachments/assets/4570398c-0e49-4199-bc30-ab72f6680f4b)
+
 # Nuxt LLMs
 
 [![npm version][npm-version-src]][npm-version-href]
