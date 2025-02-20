@@ -30,13 +30,13 @@ export default defineNuxtModule<ModuleOptions>({
     addServerHandler({ route: '/llms.txt', handler: resolve('./runtime/server/routes/llms.txt.get') })
     addPrerenderRoutes('/llms.txt')
 
-    if (options.llmsFull) {
+    if (options.full) {
       llmsConfig.sections.unshift({
         title: 'Documentation Sets',
         links: [
           {
-            title: options.llmsFull.title,
-            description: options.llmsFull.description,
+            title: options.full.title,
+            description: options.full.description,
             href: `${options.domain}/llms_full.txt`,
           },
         ],

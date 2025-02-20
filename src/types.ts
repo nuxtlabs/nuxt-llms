@@ -16,7 +16,7 @@ export interface ModuleOptions {
   /**
    * Enable the full documentation
    */
-  llmsFull?: {
+  full?: {
     title: string
     description: string
   }

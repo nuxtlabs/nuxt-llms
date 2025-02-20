@@ -12,11 +12,11 @@ export default eventHandler(async (event) => {
   await llmsHooks.callHook('generate:full', event, llms, contents)
 
   const document = [
-    `# ${llms.llmsFull?.title || 'Documentation'}`,
+    `# ${llms.full?.title || 'Documentation'}`,
   ]
 
   if (llms.description) {
-    document.push(`> ${llms.llmsFull?.description}`)
+    document.push(`> ${llms.full?.description}`)
   }
 
   for (const content of contents) {

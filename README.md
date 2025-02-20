@@ -82,7 +82,7 @@ That's it! You can visit `/llms.txt` to see the generated documentation ✨
     - `description`: The description of the link
     - `href`(required): The href of the link
 - `notes`: The notes of the documentation. Notes are a special section which always appears at the end of the documentation. Notes are usefull to add any information about the application or documentation itself.
-- `llmsFull`: The `llms_full.txt` configuration. Setting this option will enable the `llms_full.txt` route.
+- `full`: The `llms_full.txt` configuration. Setting this option will enable the `llms_full.txt` route.
   - `title`: The title of the llms_full documentation
   - `description`: The description of the llms_full documentation
 
@@ -103,14 +103,14 @@ The `/llms.txt` route generates a concise, structured documentation that follows
 
 The `/llms_full.txt` route provides a more detailed, free-form documentation format. This is useful to reduce crawler traffic on your application and provide a more detailed documentation to your users and LLMs.
 
-By default module does not generate the `llms_full.txt` route, you need to enable it by setting `llmsFull.title` and `llmsFull.description` in your `nuxt.config.ts`.
+By default module does not generate the `llms_full.txt` route, you need to enable it by setting `full.title` and `full.description` in your `nuxt.config.ts`.
 
 ```ts
 export default defineNuxtConfig({
   llms: {
     domain: 'https://example.com',
     title: 'My Application',
-    llmsFull: {
+    full: {
       title: 'Full Documentation',
       description: 'Full documentation of the application',
     },
