@@ -13,7 +13,8 @@ Nuxt LLMs automatically generates [`llms.txt` markdown documentation](https://ll
 
 ## Features
 
-- Generates & prerenders `/llms.txt` and `/llms_full.txt` routes automatically
+- Generates & prerenders `/llms.txt` automatically
+- Generate & prerenders `/llms_full.txt` when enabled
 - Customizable sections directly from your `nuxt.config.ts`
 - Integrates with Nuxt modules and your application via the runtime hooks system
 
