@@ -11,18 +11,6 @@ export default eventHandler(async (event) => {
 
   await llmsHooks.callHook('generate:full', event, llms, contents)
 
-  const document = [
-    `# ${llms.full?.title || 'Documentation'}`,
-  ]
-
-  if (llms.description) {
-    document.push(`> ${llms.full?.description}`)
-  }
-
-  for (const content of contents) {
-    document.push(content)
-  }
-
   setHeader(event, 'Content-Type', 'text/plain')
   return contents.join('\n\n')
 })
