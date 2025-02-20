@@ -83,7 +83,7 @@ That's it! You can visit `/llms.txt` to see the generated documentation ✨
     - `title`(required): The title of the link
     - `description`: The description of the link
     - `href`(required): The href of the link
-- `notes`: The notes of the documentation. Notes are a special section which always appears at the end of the documentation. Notes are usefull to add any information about the application or documentation itself.
+- `notes`: The notes of the documentation. Notes are a special section which always appears at the end of the documentation. Notes are useful to add any information about the application or documentation itself.
 - `full`: The `llms_full.txt` configuration. Setting this option will enable the `llms_full.txt` route.
   - `title`: The title of the llms_full documentation
   - `description`: The description of the llms_full documentation
@@ -222,6 +222,29 @@ export default defineNuxtModule({
   }
 })
 ```
+
+## Integrations
+
+### Nuxt Content
+
+Nuxt Content 3.2.0 comes with built-in support for LLMs documentation. You can use `nuxt-llms` with `@nuxt/content` to efficiently write content and documentation for your website and generate LLM-friendly documentation without extra effort. Content module uses `nuxt-llms` hooks and automatically adds all your contents into `llms.txt` and `llms_full.txt` documentation.
+
+All you need is to install both modules and write your content files in the `content` directory.
+
+```ts
+export default defineNuxtConfig({
+  modules: ['nuxt-llms', '@nuxt/content'],
+  llms: {
+    domain: 'https://example.com',
+    title: 'My Application',
+    description: 'My Application Description',
+  },
+})
+```
+
+Checkout the [Nuxt Content documentation](https://content.nuxt.com/docs/usage/content-pages) for more information on how to write your content files.
+
+And checkout the [Nuxt Contnet llms documentation](https://content.nuxt.com/docs/advanced/llms) for more information on how to customize LLMs contents with `nuxt-llms` and `@nuxt/content`.
 
 ## 💻 Development
 
