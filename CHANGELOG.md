@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.0.2
+
+[compare changes](https://github.com/nuxtlabs/nuxt-llms/compare/v0.0.1...v0.0.2)
+
+### 🩹 Fixes
+
+- Rename `llmsFull` option to `full` ([a919d53](https://github.com/nuxtlabs/nuxt-llms/commit/a919d53))
+
+### 📖 Documentation
+
+- Add hooks usage ([7fe260e](https://github.com/nuxtlabs/nuxt-llms/commit/7fe260e))
+- Mention llms_full as optional ([c72837a](https://github.com/nuxtlabs/nuxt-llms/commit/c72837a))
+- Llms_full option ([2fabe9d](https://github.com/nuxtlabs/nuxt-llms/commit/2fabe9d))
+
+### ❤️ Contributors
+
+- Farnabaz <farnabaz@gmail.com>
+- Sébastien Chopin ([@atinux](http://github.com/atinux))
+
 ## v0.0.1
 
 
