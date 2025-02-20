@@ -227,7 +227,7 @@ export default defineNuxtModule({
 
 ### Nuxt Content
 
-Nuxt Content 3.2.0 comes with built-in support for LLMs documentation. You can use `nuxt-llms` with `@nuxt/content` to efficiently write content and documentation for your website and generate LLM-friendly documentation without extra effort. Content module uses `nuxt-llms` hooks and automatically adds all your contents into `llms.txt` and `llms_full.txt` documentation.
+Nuxt Content ^3.2.0 comes with built-in support for LLMs documentation. You can use `nuxt-llms` with `@nuxt/content` to efficiently write content and documentation for your website and generate LLM-friendly documentation without extra effort. Content module uses `nuxt-llms` hooks and automatically adds all your contents into `llms.txt` and `llms_full.txt` documentation.
 
 All you need is to install both modules and write your content files in the `content` directory.
 
