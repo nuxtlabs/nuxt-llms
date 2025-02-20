@@ -82,6 +82,126 @@ That's it! You can visit `/llms.txt` to see the generated documentation ✨
     - `href`(required): The href of the link
 - `notes`: The notes of the documentation. Notes are a special section which always appears at the end of the documentation. Notes are usefull to add any information about the application or documentation itself.
 
+## Documentation Formats
+
+The module generates two different documentation formats:
+
+### llms.txt
+
+The `/llms.txt` route generates a concise, structured documentation that follows the [llms.txt specification](https://llmstxt.org/). This format is optimized for both human readability and AI consumption. It includes:
+
+- Application title and description
+- Organized sections with titles and descriptions
+- Links with titles, descriptions, and URLs
+- Optional notes section
+
+### llms_full.txt
+
+The `/llms_full.txt` route provides a more detailed, free-form documentation format. This is useful to reduce crawler traffic on your application and provide a more detailed documentation to your users and LLMs.
+
+## Extending the documentation using hooks
+
+The module provides a hooks system that allows you to dynamically extend both documentation formats. There are two main hooks:
+
+### Available Hooks
+
+#### `generate:llms(event, options)`
+
+This hook is called for every request to `/llms.txt`. Use this hook to modify the structured documentation, It allows you to add sections, links, and metadata.
+
+**Parameters:**
+  - `event`: H3Event - The current request event
+  - `options`: ModuleOptions - The module options that you can modify to add sections, links, etc.
+
+
+#### `generate:llms_full(event, options, contents)`
+
+This hook is called for every request to `/llms_full.txt`. It allows you to add custom content sections in any format.
+
+**Parameters:**
+  - `event`: H3Event - The current request event
+  - `options`: ModuleOptions - The module options that you can modify to add sections, links, etc.
+  - `contents`: string[] - Array of content sections you can add to or modify
+
+### Using Hooks in Your Application
+
+Create a server plugin in your `server/plugins` directory:
+
+```ts
+// server/plugins/llms.ts
+import { onLLMsGenerate, onLLMsGenerateFull, llmsHooks } from 'nuxt-llms/runtime'
+
+export default defineNitroPlugin(() => {
+  // Method 1: Using the hooks directly
+  llmsHooks.hook('generate', (event, options) => {
+    // Add a new section to llms.txt
+    options.sections.push({
+      title: 'API Documentation',
+      description: 'REST API endpoints and usage',
+      links: [
+        {
+          title: 'Authentication',
+          description: 'API authentication methods',
+          href: `${options.domain}/api/auth`
+        }
+      ]
+    })
+  })
+
+  // Method 2: Using the helper function
+  onLLMsGenerateFull((event, options, contents) => {
+    // Add detailed documentation to llms_full.txt
+    contents.push(`## API Authentication
+
+### Bearer Token
+To authenticate API requests, include a Bearer token in the Authorization header:
+
+\`\`\`
+Authorization: Bearer <your-token>
+\`\`\`
+
+### API Keys
+For server-to-server communication, use API keys:
+
+\`\`\`
+X-API-Key: <your-api-key>
+\`\`\`
+    `)
+  })
+})
+```
+
+### Using Hooks in Nuxt Modules
+
+If you're developing a Nuxt module that needs to extend the LLMs documentation:
+
+1. Create a server plugin in your module:
+```ts
+// module/runtime/server/plugins/my-module-llms.ts
+export default defineNitroPlugin(() => {
+  onLLMsGenerate((event, options) => {
+    options.sections.push({
+      title: 'My Module',
+      description: 'Documentation for my module features',
+      links: [/* ... */]
+    })
+  })
+})
+```
+
+2. Register the plugin in your module setup:
+```ts
+import { defineNuxtModule, addServerPlugin } from '@nuxt/kit'
+import { fileURLToPath } from 'url'
+
+export default defineNuxtModule({
+  setup(options, nuxt) {
+    const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url))
+    addServerPlugin(resolve(runtimeDir, 'server/plugins/my-module-llms'))
+  }
+})
+```
+
 ## 💻 Development
 
 - Clone repository
