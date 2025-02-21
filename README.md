@@ -150,9 +150,9 @@ Create a server plugin in your `server/plugins` directory:
 
 ```ts
 // server/plugins/llms.ts
-export default defineNitroPlugin((nitro) => {
+export default defineNitroPlugin((nitroApp) => {
   // Method 1: Using the hooks directly
-  nitro.hooks.hook('llms:generate', (event, options) => {
+  nitroApp.hooks.hook('llms:generate', (event, options) => {
     // Add a new section to llms.txt
     options.sections.push({
       title: 'API Documentation',
@@ -168,7 +168,7 @@ export default defineNitroPlugin((nitro) => {
   })
 
   // Method 2: Using the helper function
-  nitro.hooks.hook('llms:generate:full', (event, options, contents) => {
+  nitroApp.hooks.hook('llms:generate:full', (event, options, contents) => {
     // Add detailed documentation to llms_full.txt
     contents.push(`## API Authentication
 
@@ -197,8 +197,8 @@ If you're developing a Nuxt module that needs to extend the LLMs documentation:
 1. Create a server plugin in your module:
 ```ts
 // module/runtime/server/plugins/my-module-llms.ts
-export default defineNitroPlugin((nitro) => {
-  nitro.hooks.hook('llms:generate', (event, options) => {
+export default defineNitroPlugin((nitroApp) => {
+  nitroApp.hooks.hook('llms:generate', (event, options) => {
     options.sections.push({
       title: 'My Module',
       description: 'Documentation for my module features',
