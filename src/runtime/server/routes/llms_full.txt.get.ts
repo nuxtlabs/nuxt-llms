@@ -1,7 +1,7 @@
 import { eventHandler, setHeader } from 'h3'
 import type { ModuleOptions } from 'nuxt-llms'
 import { llmsHooks } from 'nuxt-llms/runtime'
-import { useRuntimeConfig } from '#imports'
+import { useRuntimeConfig, useNitroApp } from '#imports'
 
 export default eventHandler(async (event) => {
   const options = useRuntimeConfig(event).llms as ModuleOptions
@@ -9,6 +9,7 @@ export default eventHandler(async (event) => {
   const contents = [] as string[]
   const llms: ModuleOptions = JSON.parse(JSON.stringify(options))
 
+  await useNitroApp().hooks.callHook('llms:generate:full', event, llms, contents)
   await llmsHooks.callHook('generate:full', event, llms, contents)
 
   setHeader(event, 'Content-Type', 'text/plain')
