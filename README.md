@@ -242,7 +242,7 @@ export default defineNuxtConfig({
 
 Checkout the [Nuxt Content documentation](https://content.nuxt.com/docs/usage/content-pages) for more information on how to write your content files.
 
-And checkout the [Nuxt Contnet llms documentation](https://content.nuxt.com/docs/advanced/llms) for more information on how to customize LLMs contents with `nuxt-llms` and `@nuxt/content`.
+And checkout the [Nuxt Content llms documentation](https://content.nuxt.com/docs/advanced/llms) for more information on how to customize LLMs contents with `nuxt-llms` and `@nuxt/content`.
 
 ## 💻 Development
 
