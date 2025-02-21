@@ -126,7 +126,7 @@ The module provides a hooks system that allows you to dynamically extend both do
 
 ### Available Hooks
 
-#### `generate:llms(event, options)`
+#### `llms:generate(event, options)`
 
 This hook is called for every request to `/llms.txt`. Use this hook to modify the structured documentation, It allows you to add sections, links, and metadata.
 
@@ -135,7 +135,7 @@ This hook is called for every request to `/llms.txt`. Use this hook to modify th
   - `options`: ModuleOptions - The module options that you can modify to add sections, links, etc.
 
 
-#### `generate:llms_full(event, options, contents)`
+#### `llms:generate:llms_full(event, options, contents)`
 
 This hook is called for every request to `/llms_full.txt`. It allows you to add custom content sections in any format.
 
@@ -150,11 +150,9 @@ Create a server plugin in your `server/plugins` directory:
 
 ```ts
 // server/plugins/llms.ts
-import { onLLMsGenerate, onLLMsGenerateFull, llmsHooks } from 'nuxt-llms/runtime'
-
-export default defineNitroPlugin(() => {
+export default defineNitroPlugin((nitroApp) => {
   // Method 1: Using the hooks directly
-  llmsHooks.hook('generate', (event, options) => {
+  nitroApp.hooks.hook('llms:generate', (event, options) => {
     // Add a new section to llms.txt
     options.sections.push({
       title: 'API Documentation',
@@ -170,7 +168,7 @@ export default defineNitroPlugin(() => {
   })
 
   // Method 2: Using the helper function
-  onLLMsGenerateFull((event, options, contents) => {
+  nitroApp.hooks.hook('llms:generate:full', (event, options, contents) => {
     // Add detailed documentation to llms_full.txt
     contents.push(`## API Authentication
 
@@ -199,8 +197,8 @@ If you're developing a Nuxt module that needs to extend the LLMs documentation:
 1. Create a server plugin in your module:
 ```ts
 // module/runtime/server/plugins/my-module-llms.ts
-export default defineNitroPlugin(() => {
-  onLLMsGenerate((event, options) => {
+export default defineNitroPlugin((nitroApp) => {
+  nitroApp.hooks.hook('llms:generate', (event, options) => {
     options.sections.push({
       title: 'My Module',
       description: 'Documentation for my module features',
