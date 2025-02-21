@@ -23,13 +23,19 @@ jobs:
         run: npx nypm@latest i
 
       - name: Lint
-        run: npm run lint
+        run: pnpm lint
 
       - name: Playground prepare
-        run: npm run dev:prepare
+        run: pnpm dev:prepare
 
       - name: Test
-        run: npm run test
+        run: pnpm test
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm prepack
 
       - name: Publish
         # add `--compact` option after releasing on npm

@@ -2,6 +2,7 @@ import { createHooks } from 'hookable'
 import type { H3Event } from 'h3'
 import type { ModuleOptions } from 'nuxt-llms'
 import type { NitroRuntimeHooks } from 'nitropack/types'
+// @ts-expect-error - useNitroApp is not typed
 import { useNitroApp } from '#imports'
 
 /**
@@ -17,12 +18,8 @@ export interface LLMSHooks {
  */
 export const llmsHooks = createHooks<LLMSHooks>()
 
-llmsHooks.hook('generate', () => {
-  console.warn('llmsHooks are deprecated, use `nitro.hooks.hook(\'llms:generate\', (event, options) => {})` instead')
-})
-
-llmsHooks.hook('generate:full', () => {
-  console.warn('llmsHooks are deprecated, use `nitro.hooks.hook(\'llms:generate:full\', (event, options, contents) => {})` instead')
+llmsHooks.beforeEach(() => {
+  console.warn('llmsHooks are deprecated in favor of NitroRuntimeHooks. e.g. `nitroApp.hooks.hook(\'llms:generate\', (event, options) => {})`')
 })
 
 /**
