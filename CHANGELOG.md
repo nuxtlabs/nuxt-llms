@@ -1,6 +1,39 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/nuxtlabs/nuxt-llms/compare/v0.0.2...v0.1.0)
+
+### 🚀 Enhancements
+
+- Deprecate module hook and use nitro hooks ([#4](https://github.com/nuxtlabs/nuxt-llms/pull/4))
+
+### 🩹 Fixes
+
+- Readme typo ([#6](https://github.com/nuxtlabs/nuxt-llms/pull/6))
+
+### 📖 Documentation
+
+- Add image ([2cbbe90](https://github.com/nuxtlabs/nuxt-llms/commit/2cbbe90))
+- Add docs about Nuxt Content integration ([7c26dd4](https://github.com/nuxtlabs/nuxt-llms/commit/7c26dd4))
+- Update readme ([ca0aad8](https://github.com/nuxtlabs/nuxt-llms/commit/ca0aad8))
+
+### 🌊 Types
+
+- Export correct types in `package.json` ([60fbed3](https://github.com/nuxtlabs/nuxt-llms/commit/60fbed3))
+
+### 🏡 Chore
+
+- Remove unused code ([032a55e](https://github.com/nuxtlabs/nuxt-llms/commit/032a55e))
+- **playground:** Setup ([ced2cf6](https://github.com/nuxtlabs/nuxt-llms/commit/ced2cf6))
+
+### ❤️ Contributors
+
+- Hugo Richard ([@HugoRCD](http://github.com/HugoRCD))
+- Farnabaz <farnabaz@gmail.com>
+- Sébastien Chopin ([@atinux](http://github.com/atinux))
+
 ## v0.0.2
 
 [compare changes](https://github.com/nuxtlabs/nuxt-llms/compare/v0.0.1...v0.0.2)
