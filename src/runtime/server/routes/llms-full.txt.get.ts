@@ -13,6 +13,6 @@ export default eventHandler(async (event) => {
   await useNitroApp().hooks.callHook('llms:generate:full', event, llms, contents)
   await llmsHooks.callHook('generate:full', event, llms, contents)
 
-  setHeader(event, 'Content-Type', 'text/plain')
+  setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
   return contents.join('\n\n')
 })

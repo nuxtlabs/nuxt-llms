@@ -39,6 +39,6 @@ export default eventHandler(async (event) => {
     )
   }
 
-  setHeader(event, 'Content-Type', 'text/plain')
+  setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
   return document.join('\n\n')
 })
