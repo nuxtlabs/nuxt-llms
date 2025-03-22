@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/nuxtlabs/nuxt-llms/compare/v0.1.0...v0.1.1)
+
+### 🩹 Fixes
+
+- Add charset=utf-8 ([dc786d7](https://github.com/nuxtlabs/nuxt-llms/commit/dc786d7))
+
+### 🏡 Chore
+
+- **release:** V0.1.0 ([b9f4da1](https://github.com/nuxtlabs/nuxt-llms/commit/b9f4da1))
+- Rename `llms_full.txt` to `llms-full.txt` ([c6cc516](https://github.com/nuxtlabs/nuxt-llms/commit/c6cc516))
+- Update deps ([6e0676d](https://github.com/nuxtlabs/nuxt-llms/commit/6e0676d))
+
+### ❤️ Contributors
+
+- Sébastien Chopin ([@atinux](https://github.com/atinux))
+- IO-Fire ([@IO-Fire](https://github.com/IO-Fire))
+- Farnabaz <farnabaz@gmail.com>
+
 ## v0.1.0
 
 [compare changes](https://github.com/nuxtlabs/nuxt-llms/compare/v0.0.2...v0.1.0)
