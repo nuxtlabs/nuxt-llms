@@ -16,7 +16,7 @@ Nuxt LLMs automatically generates [`llms.txt` markdown documentation](https://ll
 ## Features
 
 - Generates & prerenders `/llms.txt` automatically
-- Generate & prerenders `/llms_full.txt` when enabled
+- Generate & prerenders `/llms-full.txt` when enabled
 - Customizable sections directly from your `nuxt.config.ts`
 - Integrates with Nuxt modules and your application via the runtime hooks system
 
@@ -84,9 +84,9 @@ That's it! You can visit `/llms.txt` to see the generated documentation ✨
     - `description`: The description of the link
     - `href`(required): The href of the link
 - `notes`: The notes of the documentation. Notes are a special section which always appears at the end of the documentation. Notes are useful to add any information about the application or documentation itself.
-- `full`: The `llms_full.txt` configuration. Setting this option will enable the `llms_full.txt` route.
-  - `title`: The title of the llms_full documentation
-  - `description`: The description of the llms_full documentation
+- `full`: The `llms-full.txt` configuration. Setting this option will enable the `llms-full.txt` route.
+  - `title`: The title of the llms-full documentation
+  - `description`: The description of the llms-full documentation
 
 ## Documentation Formats
 
@@ -101,11 +101,11 @@ The `/llms.txt` route generates a concise, structured documentation that follows
 - Links with titles, descriptions, and URLs
 - Optional notes section
 
-### llms_full.txt
+### llms-full.txt
 
-The `/llms_full.txt` route provides a more detailed, free-form documentation format. This is useful to reduce crawler traffic on your application and provide a more detailed documentation to your users and LLMs.
+The `/llms-full.txt` route provides a more detailed, free-form documentation format. This is useful to reduce crawler traffic on your application and provide a more detailed documentation to your users and LLMs.
 
-By default module does not generate the `llms_full.txt` route, you need to enable it by setting `full.title` and `full.description` in your `nuxt.config.ts`.
+By default module does not generate the `llms-full.txt` route, you need to enable it by setting `full.title` and `full.description` in your `nuxt.config.ts`.
 
 ```ts
 export default defineNuxtConfig({
@@ -135,9 +135,9 @@ This hook is called for every request to `/llms.txt`. Use this hook to modify th
   - `options`: ModuleOptions - The module options that you can modify to add sections, links, etc.
 
 
-#### `llms:generate:llms_full(event, options, contents)`
+#### `llms:generate:llms-full(event, options, contents)`
 
-This hook is called for every request to `/llms_full.txt`. It allows you to add custom content sections in any format.
+This hook is called for every request to `/llms-full.txt`. It allows you to add custom content sections in any format.
 
 **Parameters:**
   - `event`: H3Event - The current request event
@@ -169,7 +169,7 @@ export default defineNitroPlugin((nitroApp) => {
 
   // Method 2: Using the helper function
   nitroApp.hooks.hook('llms:generate:full', (event, options, contents) => {
-    // Add detailed documentation to llms_full.txt
+    // Add detailed documentation to llms-full.txt
     contents.push(`## API Authentication
 
 ### Bearer Token
@@ -225,7 +225,7 @@ export default defineNuxtModule({
 
 ### Nuxt Content
 
-Nuxt Content ^3.2.0 comes with built-in support for LLMs documentation. You can use `nuxt-llms` with `@nuxt/content` to efficiently write content and documentation for your website and generate LLM-friendly documentation without extra effort. Content module uses `nuxt-llms` hooks and automatically adds all your contents into `llms.txt` and `llms_full.txt` documentation.
+Nuxt Content ^3.2.0 comes with built-in support for LLMs documentation. You can use `nuxt-llms` with `@nuxt/content` to efficiently write content and documentation for your website and generate LLM-friendly documentation without extra effort. Content module uses `nuxt-llms` hooks and automatically adds all your contents into `llms.txt` and `llms-full.txt` documentation.
 
 All you need is to install both modules and write your content files in the `content` directory.
 

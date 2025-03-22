@@ -37,12 +37,12 @@ export default defineNuxtModule<ModuleOptions>({
           {
             title: options.full.title,
             description: options.full.description,
-            href: `${options.domain}/llms_full.txt`,
+            href: `${options.domain}/llms-full.txt`,
           },
         ],
       })
-      addServerHandler({ route: '/llms_full.txt', handler: resolve('./runtime/server/routes/llms_full.txt.get') })
-      addPrerenderRoutes('/llms_full.txt')
+      addServerHandler({ route: '/llms-full.txt', handler: resolve('./runtime/server/routes/llms-full.txt.get') })
+      addPrerenderRoutes('/llms-full.txt')
     }
   },
 })
