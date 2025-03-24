@@ -19,7 +19,13 @@ export interface LLMSHooks {
 export const llmsHooks = createHooks<LLMSHooks>()
 
 llmsHooks.beforeEach(() => {
-  console.warn('[nuxt-llms] `llmsHooks` are deprecated and will be removed in future versions. Use `useNitroApp().hooks.hook(\'llms:generate\', (event, options) => {})` instead')
+  // @ts-expect-error - `_hooks` is private
+  const hooks = Object.values(llmsHooks._hooks || {})
+  const hasRegisteredHook = hooks.some(hooksList => Array.isArray(hooksList) && hooksList.length > 0)
+
+  if (!hasRegisteredHook) {
+    console.warn('[nuxt-llms] `llmsHooks` are deprecated and will be removed in future versions. Use `useNitroApp().hooks.hook(\'llms:generate\', (event, options) => {})` instead')
+  }
 })
 
 /**
