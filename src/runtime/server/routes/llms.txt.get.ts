@@ -27,7 +27,9 @@ export default eventHandler(async (event) => {
     }
     document.push(
       section.links?.map((link) => {
-        return `- [${link.title}](${link.href}): ${link.description}`
+        return link.description
+          ? `- [${link.title}](${link.href}): ${link.description}`
+          : `- [${link.title}](${link.href})`
       }).join('\n') || '',
     )
   }
