@@ -1,12 +1,15 @@
 import { defineNuxtModule, createResolver, addServerHandler, addPrerenderRoutes, addServerImports, useLogger } from '@nuxt/kit'
+import { version } from '../package.json'
 import type { ModuleOptions } from './runtime/types'
 
 export type * from './runtime/types'
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'Nuxt LLMS',
+    name: 'nuxt-llms',
     configKey: 'llms',
+    version,
+    docs: 'https://github.com/nuxtlabs/nuxt-llms',
   },
   defaults: {},
   setup(options, nuxt) {

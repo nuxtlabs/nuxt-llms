@@ -6,6 +6,13 @@
     "type": "git",
     "url": "git+https://github.com/nuxtlabs/nuxt-llms.git"
   },
+  "keywords": [
+    "nuxt",
+    "llms",
+    "documentation",
+    "generator",
+    "nuxt-module"
+  ],
   "license": "MIT",
   "type": "module",
   "exports": {
