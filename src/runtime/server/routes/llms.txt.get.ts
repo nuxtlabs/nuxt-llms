@@ -17,9 +17,10 @@ export default eventHandler(async (event) => {
   ]
 
   if (llms.description && llms.description.length !== 0) {
-    document.push(`> ${llms.description}`); }
+    document.push(`> ${llms.description}`)
+  }
   else {
-    document.push(`> ${options.description || ''}`);
+    document.push(`> ${options.description || ''}`)
   }
 
   for (const section of llms.sections) {
