@@ -28,14 +28,14 @@ jobs:
       - name: Playground prepare
         run: pnpm dev:prepare
 
+      - name: Build
+        run: pnpm prepack
+
       - name: Test
         run: pnpm test
 
       - name: Typecheck
         run: pnpm typecheck
-
-      - name: Build
-        run: pnpm prepack
 
       - name: Publish
         # add `--compact` option after releasing on npm
