@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/nuxtlabs/nuxt-llms/compare/v0.1.2...v0.1.2)
+
+### 🩹 Fixes
+
+- Using custom description provided within the `llms:generate` hook ([#16](https://github.com/nuxtlabs/nuxt-llms/pull/16))
+
+### 🏡 Chore
+
+- Update package meta ([897458b](https://github.com/nuxtlabs/nuxt-llms/commit/897458b))
+- Update deps and add test ([9c072df](https://github.com/nuxtlabs/nuxt-llms/commit/9c072df))
+- Display only when has registered hooks ([b5ec4e6](https://github.com/nuxtlabs/nuxt-llms/commit/b5ec4e6))
+- Build before testing ([48436d9](https://github.com/nuxtlabs/nuxt-llms/commit/48436d9))
+- Disable typecheck in test ([0060134](https://github.com/nuxtlabs/nuxt-llms/commit/0060134))
+
+### ❤️ Contributors
+
+- Sébastien Chopin ([@atinux](https://github.com/atinux))
+- Lukas Borawski ([@lukasborawski](https://github.com/lukasborawski))
+
 ## v0.1.1
 
 [compare changes](https://github.com/nuxtlabs/nuxt-llms/compare/v0.1.0...v0.1.1)
