@@ -23,7 +23,7 @@ llmsHooks.beforeEach(() => {
   const hooks = Object.values(llmsHooks._hooks || {})
   const hasRegisteredHook = hooks.some(hooksList => Array.isArray(hooksList) && hooksList.length > 0)
 
-  if (!hasRegisteredHook) {
+  if (hasRegisteredHook) {
     console.warn('[nuxt-llms] `llmsHooks` are deprecated and will be removed in future versions. Use `useNitroApp().hooks.hook(\'llms:generate\', (event, options) => {})` instead')
   }
 })
