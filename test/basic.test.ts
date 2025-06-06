@@ -12,4 +12,10 @@ describe('ssr', async () => {
     const html = await $fetch('/')
     expect(html).toContain('<div>basic</div>')
   })
+
+  it('renders the /llms.txt file', async () => {
+    // Get response to a server-rendered page with `$fetch`.
+    const html = await $fetch('/llms.txt')
+    expect(html).toContain('# Nuxt LLMs module')
+  })
 })
