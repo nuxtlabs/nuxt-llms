@@ -19,7 +19,6 @@ export default eventHandler(async (event) => {
   if (llms.description) {
     document.push(`> ${llms.description}`)
   }
-  }
 
   for (const section of llms.sections) {
     document.push(`## ${section.title}`)
